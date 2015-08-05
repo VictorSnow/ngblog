@@ -27,11 +27,11 @@
                 )
             ),
             'view' => array(
-                'path' => APP_PATH."/protected/blog/view/",
+                'path' => APP_PATH."/protected/Blog/view/",
                 'layout' => 'layout.php'
             ),
             'db' => array(
-                'host' => 'localhost:1235',
+                'host' => '127.0.0.1',
                 'username' => 'wordpress',
                 'password' => 'wordpress',
                 'dbname' => 'wordpress'
