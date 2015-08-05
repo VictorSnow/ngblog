@@ -1,0 +1,47 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "f4b36326ecdb33cbdda92cca00b24436",
+    "packages": [
+        {
+            "name": "victorsnow/smallphp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/VictorSnow/SmallPhp.git",
+                "reference": "4f5764e2ee90bf7db833c938f662dcfc52ea345b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/VictorSnow/SmallPhp/zipball/4f5764e2ee90bf7db833c938f662dcfc52ea345b",
+                "reference": "4f5764e2ee90bf7db833c938f662dcfc52ea345b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Xend": "lib",
+                    "Application": "lib"
+                }
+            },
+            "support": {
+                "source": "https://github.com/VictorSnow/SmallPhp/tree/master",
+                "issues": "https://github.com/VictorSnow/SmallPhp/issues"
+            },
+            "time": "2015-04-22 09:26:44"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "victorsnow/smallphp": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

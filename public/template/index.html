@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Blog</h3>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item title" ng-repeat="post in list">
+        <a href="#/detail/{{post.ID}}">{{post.post_title}}</a>
+      </li>
+    </ul>
+</div>
+
+<div>
+    <ul class="pagination">
+        <li ng-class="{true:'active',false:''}[page==i]" ui-sref="list({id:i})" ng-repeat="i in pagers" style="cursor: pointer"> 
+            <span>{{i}}</span>
+        </li>
+    </ul>
+</div>
