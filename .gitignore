@@ -1,1 +1,4 @@
 vendor
+public/built.js
+public/built.min.js
+public/node_modules

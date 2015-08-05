@@ -19,6 +19,12 @@
               </button>
               <a class="navbar-brand" href="#/">Victor's Blog</a>
           </div>
+          <div class="collapse navbar-collapse">
+		<ul class="nav navbar-nav navbar-right">
+			<li class="active"><a href="#">Blog</a></li>
+			<li><a href="http://blog.vvstate.com">Old Blog</a></li>
+		</ul>
+	 </div>
       </div>
     </nav>
     <div class="row" style="padding-top: 70px">
@@ -31,12 +37,17 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript" src="/jquery.min.js"></script>
+   <!--
+	 <script type="text/javascript" src="/jquery.min.js"></script>
     <script type="text/javascript" src="/bootstrap.min.js"></script>
     <script type="text/javascript" src="/angular.js"></script>
     <script type="text/javascript" src="/angular-ui-router.js"></script>
     <script type="text/javascript" src="/angular-paging.js"></script>
     <script type="text/javascript" src="/angular-sanitize.js"></script>
     <script type="text/javascript" src="/app/app.js"></script>
-  </body>
+	-->
+	<script type="text/javascript" src="/built.min.js"></script>  
+
+    <script type="text/javascript" src="/app/app.js"></script>
+</body>
 </html>
