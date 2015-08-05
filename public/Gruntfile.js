@@ -3,9 +3,13 @@ module.exports = function (grunt) {
   concat: {
     options: {
     },
-    dist: {
+    js: {
       src: ['jquery.min.js','bootstrap.min.js','angular.js','angular-sanitize.js','angular-ui-router.js'],
       dest: 'built.js'
+    },
+    'css':{
+	src:['bootstrap.min.css','bootstrap-theme.min.css','home.css'],
+        dest: 'built.css'
     }
   },
   uglify: {
@@ -13,10 +17,17 @@ module.exports = function (grunt) {
         src: 'built.js',
         dest: 'built.min.js'
       }
+   },
+   cssmin:{
+	css:{
+	    src:'built.css',
+	    dest:'built.min.css'	
+	}
    }
 });
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   
-  grunt.registerTask('default', ['concat','uglify']);
+  grunt.loadNpmTasks('grunt-css');
+  grunt.registerTask('default', ['concat','uglify','cssmin']);
 }
