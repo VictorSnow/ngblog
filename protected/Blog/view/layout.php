@@ -1,15 +1,8 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <!--
-	 <link rel="stylesheet" href="/bootstrap.min.css">
-    <link rel="stylesheet" href="/bootstrap-theme.min.css">
-    <link href="/home.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    -->
-
     <link rel="stylesheet" href="/built.min.css">
-	<title>Victor's Blog</title>
+    <title>Victor's Blog</title>
   </head>
   <body ng-app="blog">
     <nav class="navbar navbar-default navbar-fixed-top" style="opacity: .9" role="navigation">
@@ -24,11 +17,11 @@
               <a class="navbar-brand" href="#/">Victor's Blog</a>
           </div>
           <div class="collapse navbar-collapse">
-		<ul class="nav navbar-nav navbar-right">
-			<li class="active"><a href="#">Blog</a></li>
-			<li><a href="http://blog.vvstate.com">Old Blog</a></li>
-		</ul>
-	 </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="http://www.vvstate.com">Blog</a></li>
+            <li><a href="http://blog.vvstate.com">Wordpress</a></li>
+        </ul>
+     </div>
       </div>
     </nav>
     <div class="row" style="padding-top: 70px">
@@ -41,17 +34,7 @@
         </div>
       </div>
     </div>
-   <!--
-	 <script type="text/javascript" src="/jquery.min.js"></script>
-    <script type="text/javascript" src="/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/angular.js"></script>
-    <script type="text/javascript" src="/angular-ui-router.js"></script>
-    <script type="text/javascript" src="/angular-paging.js"></script>
-    <script type="text/javascript" src="/angular-sanitize.js"></script>
-    <script type="text/javascript" src="/app/app.js"></script>
-	-->
-	<script type="text/javascript" src="/built.min.js"></script>  
-
+    <script type="text/javascript" src="/built.min.js"></script>
     <script type="text/javascript" src="/app/app.js"></script>
 </body>
 </html>
