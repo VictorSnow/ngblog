@@ -40,11 +40,16 @@ angular.module('blog', [
         .state("detail",{
           url: "/detail/:id",
           templateUrl: '/template/detail.html',
-          controller:function($scope, $http,$stateParams){
-            $scope.postid = $stateParams.id;
-            $http.get('/post/detail/'+$scope.postid).success(function(ret){
-                $scope.post = ret['post'];
-            });
+          resolve:{
+            post:function($http,$stateParams){
+              var postid = $stateParams.id;
+              return $http.get('/post/detail/'+postid).then(function(response){
+                return response;
+              });
+            }
+          }
+          controller:function($scope, post){
+            $scope.post = post;
           }
         });
     }
