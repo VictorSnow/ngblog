@@ -4,11 +4,11 @@ module.exports = function (grunt) {
     options: {
     },
     js: {
-      src: ['jquery.min.js','bootstrap.min.js','angular.js','angular-sanitize.js','angular-ui-router.js'],
+      src: ['jquery.min.js','bootstrap.min.js','angular.js','angular-sanitize.js','angular-ui-router.js','components/loadingbar/loading-bar.js'],
       dest: 'built.js'
     },
     'css':{
-	src:['bootstrap.min.css','bootstrap-theme.min.css','home.css'],
+	src:['bootstrap.min.css','bootstrap-theme.min.css','home.css','components/loadingbar/loading-bar.js'],
         dest: 'built.css'
     }
   },

@@ -1,7 +1,8 @@
 // Make sure to include the `ui.router` module as a dependency
 angular.module('blog', [
   'ui.router',
-  'ngSanitize'
+  'ngSanitize',
+  'angular-loading-bar'
 ])
 .run(['$rootScope', '$state', '$stateParams',
     function ($rootScope,   $state,   $stateParams) {
