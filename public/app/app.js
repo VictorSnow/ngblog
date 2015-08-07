@@ -22,18 +22,18 @@ angular.module('blog', [
           templateUrl: '/template/index.html',
           resolve:{
             lists:function($http, $stateParams){
-              $http.get('/post/list/'+$stateParams.id).success(function(response){
-                return response.data
+              return $http.get('/post/list/'+$stateParams.id).then(function(response){
+                return response.data;
               });
             }
           },
           controller:function($scope,$stateParams,lists){
             $scope.page = $stateParams.id;
             $scope.list = lists['list'];
-            $scope.total = list['total'];
+            $scope.total = lists['total'];
             $scope.pagers = [];
             
-            for(var i=1 ; i <= Math.ceil($scope.total/$scope.pageSize); i++){
+            for(var i=1 ; i <= Math.ceil($scope.total/10); i++){
                 $scope.pagers.push(i);
             }
           }
