@@ -20,21 +20,22 @@ angular.module('blog', [
         .state("list", {
           url: "/list/:id",
           templateUrl: '/template/index.html',
-          controller:function($scope, $http,$stateParams,$state, $timeout){
+          resolve:{
+            lists:function($http, $stateParams){
+              $http.get('/post/list/'+$stateParams.id).success(function(response){
+                return response.data
+              });
+            }
+          },
+          controller:function($scope,$stateParams,lists){
             $scope.page = $stateParams.id;
-            $scope.pageSize = 10;
-            $scope.list = [];
-            $scope.total = 0;
-
-            $http.get('/post/list/'+$scope.page).success(function(ret){
-                $scope.list = ret['list'];
-                $scope.total = ret['total'];
-
-                $scope.pagers = [];
-                for(var i=1 ; i <= Math.ceil($scope.total/$scope.pageSize); i++){
-                    $scope.pagers.push(i);
-                }
-            });
+            $scope.list = lists['list'];
+            $scope.total = list['total'];
+            $scope.pagers = [];
+            
+            for(var i=1 ; i <= Math.ceil($scope.total/$scope.pageSize); i++){
+                $scope.pagers.push(i);
+            }
           }
         })
         .state("detail",{
@@ -44,10 +45,10 @@ angular.module('blog', [
             post:function($http,$stateParams){
               var postid = $stateParams.id;
               return $http.get('/post/detail/'+postid).then(function(response){
-                return response;
+                return response.data['post'];
               });
             }
-          }
+          },
           controller:function($scope, post){
             $scope.post = post;
           }
