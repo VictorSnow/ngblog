@@ -26,18 +26,22 @@
             $postsCacheKey = 'posts:list:'.$page;
             $totalCacheKey = 'posts:list:count';
 
-            $posts = $this->getCache()->get($postsCacheKey, function() use($page,$pagesize){
+            $posts = $this->getCache()->get($postsCacheKey, function($memc, $key, &$value) use($page,$pagesize){
                 $posts = $this->getCache()->query('select ID,post_title from wp_posts 
                     where post_status="publish" and post_type in ("post", "revision") 
                     order by ID desc 
                     limit '. ($page-1)*$pagesize.','.$pagesize);
-                return $posts
+                $value = $posts;
+                $memc->set($key, $value);
+                return false
             });
 
-            $total = $this->getCache()->get($totalCacheKey,function(){
+            $total = $this->getCache()->get($totalCacheKey,function($memc, $key, &$value){
                 $total = $this->getCache()->query('select count(*) as count from wp_posts
                     where post_status="publish" and post_type in ("post", "revision")  ');
-                return $total;
+                $value = $total;
+                $memc->set($key, $value);
+                return false;
             });
 
             return array(
