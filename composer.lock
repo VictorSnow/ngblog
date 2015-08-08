@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/VictorSnow/SmallPhp.git",
-                "reference": "0a2bb0b5f1596f4a4224cd4a0625fc89f898f095"
+                "reference": "fdd6def812874836082bf2f8f41f48b304c78a39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VictorSnow/SmallPhp/zipball/0a2bb0b5f1596f4a4224cd4a0625fc89f898f095",
-                "reference": "0a2bb0b5f1596f4a4224cd4a0625fc89f898f095",
+                "url": "https://api.github.com/repos/VictorSnow/SmallPhp/zipball/fdd6def812874836082bf2f8f41f48b304c78a39",
+                "reference": "fdd6def812874836082bf2f8f41f48b304c78a39",
                 "shasum": ""
             },
             "type": "library",
@@ -31,7 +31,7 @@
                 "source": "https://github.com/VictorSnow/SmallPhp/tree/master",
                 "issues": "https://github.com/VictorSnow/SmallPhp/issues"
             },
-            "time": "2015-08-05 10:21:11"
+            "time": "2015-08-05 11:09:21"
         }
     ],
     "packages-dev": [],

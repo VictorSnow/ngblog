@@ -1,13 +1,14 @@
 <?php 
     namespace Blog\Controller;
 
-    class PostController {
+    use \Xend\Controller\AbstractController
+
+    class PostController extends AbstractController{
 
         public function detailAction($routeinfo){
             $id = $routeinfo['index'];
 
-            $pdo = \Xend\Application::getInstant()->db;
-            $post = $pdo->query('select * from wp_posts
+            $post = $this->getDb()->query('select * from wp_posts
                                     where post_status="publish" and ID=:ID',array(':ID'=>$id));
             return array(
                 'post' => $post[0]
@@ -15,25 +16,33 @@
         }
 
         public function listAction($routeinfo){
-            $pdo = \Xend\Application::getInstant()->db;
-
+            
             $page = 1;
             $pagesize = 10;
             if(isset($routeinfo['index'])){
                 $page = intval($routeinfo['index']);
             }
 
-            $total = $pdo->query('select count(*) as count from wp_posts
-                                    where post_status="publish" and post_type in ("post", "revision")  ');
+            $postsCacheKey = 'posts:list:'.$page;
+            $totalCacheKey = 'posts:list:count';
 
-            $posts = $pdo->query('select ID,post_title from wp_posts 
-                                    where post_status="publish" and post_type in ("post", "revision") 
-                                    order by ID desc 
-                                    limit '. ($page-1)*$pagesize.','.$pagesize);
+            $posts = $this->getCache()->get($postsCacheKey, function() use($page,$pagesize){
+                $posts = $this->getCache()->query('select ID,post_title from wp_posts 
+                    where post_status="publish" and post_type in ("post", "revision") 
+                    order by ID desc 
+                    limit '. ($page-1)*$pagesize.','.$pagesize);
+                return $posts
+            });
+
+            $total = $this->getCache()->get($totalCacheKey,function(){
+                $total = $this->getCache()->query('select count(*) as count from wp_posts
+                    where post_status="publish" and post_type in ("post", "revision")  ');
+                return $total;
+            });
 
             return array(
                 'list' => $posts,
-                'total' => $total[0]['count']
+                'total' => $total
             );
         }
     }

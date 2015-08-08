@@ -6,11 +6,4 @@
         {
             return;
         }
-
-        public function listAction(){
-            return array(
-                'list' => array(),
-                'total' => 10
-            );
-        }
     }

@@ -35,6 +35,10 @@
                 'username' => 'wordpress',
                 'password' => 'wordpress',
                 'dbname' => 'wordpress'
+            ),
+            'cache' => array(
+                'host' => '127.0.0.1',
+                'port' => 11211
             )
         ),
         'configCachePath' => APP_PATH."/cache/config.php",
