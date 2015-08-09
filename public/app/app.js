@@ -51,7 +51,7 @@ angular.module('blog', [
           controller:['$scope','post',function($scope, post){
             $scope.post = post;
           }
-        ]);
+        ]});
     }
   ]
 );
