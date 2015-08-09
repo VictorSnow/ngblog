@@ -12,7 +12,7 @@ angular.module('blog', [
   ]
 )
 .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,   $urlRouterProvider) {
-    
+
       $urlRouterProvider.when('/','/list/1').when('','/list/1').otherwise('/');
 
       $stateProvider
@@ -51,7 +51,7 @@ angular.module('blog', [
           controller:['$scope','post',function($scope, post){
             $scope.post = post;
           }
-        });
+        ]);
     }
   ]
 );
