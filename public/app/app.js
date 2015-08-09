@@ -11,10 +11,8 @@ angular.module('blog', [
     }
   ]
 )
-.config(
-  [          '$stateProvider', '$urlRouterProvider',
-    function ($stateProvider,   $urlRouterProvider) {
-
+.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,   $urlRouterProvider) {
+    
       $urlRouterProvider.when('/','/list/1').when('','/list/1').otherwise('/');
 
       $stateProvider
@@ -22,13 +20,13 @@ angular.module('blog', [
           url: "/list/:id",
           templateUrl: '/template/index.html',
           resolve:{
-            lists:function($http, $stateParams){
+            lists:['$http','$stateParams',function($http, $stateParams){
               return $http.get('/post/list/'+$stateParams.id).then(function(response){
                 return response.data;
               });
-            }
+            }]
           },
-          controller:function($scope,$stateParams,lists){
+          controller:['$scope','$stateParams','lists',function($scope,$stateParams,lists){
             $scope.page = $stateParams.id;
             $scope.list = lists['list'];
             $scope.total = lists['total'];
@@ -37,20 +35,20 @@ angular.module('blog', [
             for(var i=1 ; i <= Math.ceil($scope.total/10); i++){
                 $scope.pagers.push(i);
             }
-          }
+          }]
         })
         .state("detail",{
           url: "/detail/:id",
           templateUrl: '/template/detail.html',
           resolve:{
-            post:function($http,$stateParams){
+            post:['$http','$stateParams',function($http,$stateParams){
               var postid = $stateParams.id;
               return $http.get('/post/detail/'+postid).then(function(response){
                 return response.data['post'];
               });
-            }
+            }]
           },
-          controller:function($scope, post){
+          controller:['$scope','post',function($scope, post){
             $scope.post = post;
           }
         });

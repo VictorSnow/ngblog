@@ -4,7 +4,7 @@ module.exports = function (grunt) {
     options: {
     },
     js: {
-      src: ['jquery.min.js','bootstrap.min.js','angular.js','angular-sanitize.js','angular-ui-router.js','components/loadingbar/loading-bar.js'],
+      src: ['jquery.min.js','bootstrap.min.js','angular.js','angular-sanitize.js','angular-ui-router.js','components/loadingbar/loading-bar.js','app/app.js'],
       dest: 'built.js'
     },
     'css':{

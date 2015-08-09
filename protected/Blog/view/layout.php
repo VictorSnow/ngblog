@@ -1,7 +1,6 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="/built.min.css">
     <title>Victor's Blog</title>
   </head>
   <body ng-app="blog">
@@ -34,7 +33,7 @@
         </div>
       </div>
     </div>
+    <link rel="stylesheet" href="/built.min.css">
     <script type="text/javascript" src="/built.min.js"></script>
-    <script type="text/javascript" src="/app/app.js"></script>
 </body>
 </html>
